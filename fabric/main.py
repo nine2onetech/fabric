@@ -9,7 +9,13 @@ The other callables defined in this module are internal only. Anything useful
 to individuals leveraging Fabric as a library, should be kept elsewhere.
 """
 import getpass
-from collections import Mapping
+
+try:
+    from collections.abc import Mapping
+except ImportError:
+    # Python < 3.10
+    from collections import Mapping
+
 import inspect
 from optparse import OptionParser
 import os
